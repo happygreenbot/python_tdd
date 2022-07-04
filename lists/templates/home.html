@@ -9,8 +9,10 @@
             {% csrf_token %}
         </form>
         <table id="id_list_table">
-            <!-- variable new_item_text written using the Django template format -->
-            <tr><td>{{ new_item_text }}</td></tr>
+            <!-- all text written  within {} using the Django template format, double {} for variables, single {} for conditionals/looping-->
+            {% for item in items %}
+                 <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+            {% endfor %}
         </table>
     </body>
 </html>

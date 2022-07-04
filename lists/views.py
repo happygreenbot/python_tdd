@@ -12,7 +12,7 @@ def home_page(request):
     # else:
     #     # if its a GET request, no item needs to be created, and we pass a null string to the template
     #     new_item_text = ''  
-
+    items = Item.objects.all()
     # Third parameter in the render function is a dictionary that specifies how to map variables mentioned in the template with appropriate values
     # The dict.get call allows us to return a null string in case its a GET request, since the request object will not contain the 'item_text' key in that case
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'items' : items})
