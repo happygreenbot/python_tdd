@@ -22,3 +22,8 @@ class HomePage(TestCase):
 
         # Using the assertTemplateUsed function to check if the expected template is being returned
         self.assertTemplateUsed(response, 'home.html')  
+
+    def test_can_save_a_POST_request(self):
+        # Send a post request to the '/' route and test the return HttpResponse object content
+        response = self.client.post('/', data={'item_text': 'A new list item'})
+        self.assertIn('A new list item', response.content.decode())
