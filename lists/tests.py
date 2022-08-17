@@ -11,6 +11,17 @@ from lists.models import Item
 #     def test_bad_maths(self):
 #         self.assertEqual(1 + 1, 3)
 
+class ListViewTest(TestCase):
+    
+    def test_list_displays_all_items(self):
+        Item.objects.create(text='itemey 1')
+        Item.objects.create(text='itemey 2')
+
+        response = self.client.get('/lists/the-only-list-in-the-world/')
+
+        self.assertContains(response, 'itemey 1')  
+        self.assertContains(response, 'itemey 2')  
+    
 class HomePage(TestCase):
 
     def test_root_url_resolves_to_home_page_view(self):
@@ -37,7 +48,7 @@ class HomePage(TestCase):
         # Send a post request to the '/' route and test the return HttpResponse object content
         response = self.client.post('/', data={'item_text': 'A new list item'})
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'], '/')
+        self.assertEqual(response['location'], '/lists/the-only-list-in-the-world/')
 
     def test_displays_all_list_items(self):
         Item.objects.create(text='itemey 1')
