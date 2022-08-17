@@ -8,11 +8,5 @@
             <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
             {% csrf_token %}
         </form>
-        <table id="id_list_table">
-            <!-- all text written  within {} using the Django template format, double {} for variables, single {} for conditionals/looping-->
-            {% for item in items %}
-                 <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
-            {% endfor %}
-        </table>
     </body>
 </html>
