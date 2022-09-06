@@ -24,5 +24,7 @@ from lists import views
 urlpatterns = [
     url(r'^$', views.home_page, name='home'),
     url(r'^lists/new$', views.new_list, name='new_list'),
-    url(r'^lists/the-only-list-in-the-world/', views.list_view, name='list_view')
+    url(r'^lists/(\d+)/$', views.list_view, name='list_view'),
+    url(r'^lists/(\d+)/add_item$', views.add_item, name='add_item'),
+    # url(r'^lists/the-only-list-in-the-world/', views.list_view, name='list_view')
 ]
