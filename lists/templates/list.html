@@ -19,5 +19,9 @@
             <input type="submit" name="home redirect" value="Back to home" />
             {% csrf_token %}
         </form>
+        <form method="post" action = "/lists/{{ list.id }}/delete">
+            <input type="submit" name="home redirect" value="Delete List" />
+            {% csrf_token %}
+        </form>
     </body>
 </html>

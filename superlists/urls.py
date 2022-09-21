@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^lists/new$', views.new_list, name='new_list'),
     url(r'^lists/(\d+)/$', views.list_view, name='list_view'),
     url(r'^lists/(\d+)/add_item$', views.add_item, name='add_item'),
+    url(r'^lists/(\d+)/delete$', views.delete_list, name='delete_list')
     # url(r'^lists/the-only-list-in-the-world/', views.list_view, name='list_view')
 ]
