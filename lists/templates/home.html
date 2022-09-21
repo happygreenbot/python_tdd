@@ -8,5 +8,14 @@
             <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
             {% csrf_token %}
         </form>
+        <table id="id_list_table">
+            <!-- all text written  within {} uses the Django template format, double {} for variables, single {} for conditionals/looping-->
+            {% for list_item in lists %}
+            <form method="post" action = "/lists/{{ list_item.id }}/">
+                <input type="submit" name="list redirect" value="List {{list_item.id}}" />
+                {% csrf_token %}
+            </form>
+            {% endfor %}
+        </table>
     </body>
 </html>

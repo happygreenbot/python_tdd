@@ -16,12 +16,13 @@ def home_page(request):
     # items = Item.objects.all()
     # # Third parameter in the render function is a dictionary that specifies how to map variables mentioned in the template with appropriate values
     # # The dict.get call allows us to return a null string in case its a GET request, since the request object will not contain the 'item_text' key in that case
-    return render(request, 'home.html')
+    lists = List.objects.all()
+    return render(request, 'home.html', {'lists' : lists})
 
 def list_view(request, list_id):
     list_ = List.objects.get(id=list_id)
     items = Item.objects.filter(list=list_)
-    return render(request, 'list.html', {'items' : items})
+    return render(request, 'list.html', {'items' : items, 'list' : list_})
 
 def add_item(request, list_id):
     list_ = List.objects.get(id=list_id)

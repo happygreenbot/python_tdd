@@ -3,17 +3,21 @@
         <title>To-Do lists</title>
     </head>
     <body>
-        <h1>Start a new To-Do list</h1>
-        <form method="POST" action="/lists/new">
+        <h1>Add items to your To-do List</h1>
+        <form method="POST" action="/lists/{{ list.id }}/add_item">
             <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
             {% csrf_token %}
         </form>
-        <h1>Your To-Do list</h1>
+        <h1>List {{list.id }}</h1>
         <table id="id_list_table">
             <!-- all text written  within {} uses the Django template format, double {} for variables, single {} for conditionals/looping-->
             {% for item in items %}
                  <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
             {% endfor %}
         </table>
+        <form method="post" action = "/">
+            <input type="submit" name="home redirect" value="Back to home" />
+            {% csrf_token %}
+        </form>
     </body>
 </html>
