@@ -2,6 +2,8 @@
 
 A simple project to understand TDD in python using Django's in built unit test classes. 
 
+Uses Selenium and Gecko drivers to automate inputs into Firefox for functional tests.
+
 Refer : https://www.obeythetestinggoat.com/pages/book.html#toc
 
 ## What this does
